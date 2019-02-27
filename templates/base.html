@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 
 {% url 'home' as home %}
 {% url 'list' as blog %} 
@@ -10,17 +10,31 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Album example · Bootstrap</title>
+    <title>Dio | Brando</title>
+    <link rel="shortcut icon" href="{% static 'image/logo.png' %}" type="image/x-icon">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    
+    {% block css %}
+
+    {% endblock %}
 
     <style>
       body{
      font-family: 'Special Elite', cursive;
+     height: 100%;
+     background-image:url("http://getwallpapers.com/wallpaper/full/d/8/e/153261.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: fixed;
+
       }
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -44,6 +58,91 @@
           width: 100% !important;
         }
     }
+.breadcrumb{
+  background-color: #fff0;
+}
+.dio-header{
+  background-image: url("https://www.imgbase.info/images/safe-wallpapers/anime/jojos_bizarre_adventure/40405_jojos_bizarre_adventure.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+.whatblog{
+  background-image: url("https://i.pinimg.com/originals/31/87/1e/31871e40dca52da4406b707d26cd414b.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.album{
+  background-image: url("https://images3.alphacoders.com/789/thumb-1920-789408.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+.bg-trans{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/ca9cea7a-c150-41dc-b580-9bcc9615a2ae/d1i7qma-cb22de9c-e58c-4ce3-abbb-3e92e5ec21e3.jpg/v1/fill/w_600,h_477,q_70,strp/dio_brando_by_valveider_d1i7qma-fullview.jpg");
+  min-height: 100%;
+}
+
+.bgimg-2 {
+  background-image: url("https://orig00.deviantart.net/5508/f/2017/331/6/b/final_by_mownex-dbv113p.gif");
+  min-height: 400px;
+}
+
+.bgimg-3 {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/af32970a-7db1-45c6-b741-f4b0692d42e8/d7ugw0r-0b76af01-fd69-4e45-91e8-090fda707758.png/v1/fill/w_1138,h_702,q_70,strp/header_jojo_s_bizarre_adventure_by_myosotis_ro_d7ugw0r-pre.jpg");
+  min-height: 400px;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.dio h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+  }
+}
     </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
@@ -52,8 +151,8 @@
 
 
 <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand" href="{{home}}">Nill Diggonto</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-trans fixed-top">
+                <a class="navbar-brand" href="{{home}}">DIO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -73,13 +172,11 @@
 
                     
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Resume</a>
+                      <a style="cursor:pointer;" class="nav-link"  data-toggle="modal" data-target="#my2Modal" >Biography</a>
                     </li>
 
 
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">About</a>
-                    </li>
+                  
 
 
                   </ul>
@@ -95,6 +192,26 @@
     {%endblock %}
 
 
+  <!-- The Modal -->
+  <div class="modal fade" id="my2Modal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          {% include 'bio/bio.html' %}
+        </div>
+        
+       
+        
+      </div>
+    </div>
+  </div>
+
+
 
 
 
@@ -105,12 +222,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-            <p >CopyRight Nill Diggonto {% now 'Y' %}</p>
+            <p >CopyRight | Nill Diggonto | {% now 'Y' %}</p>
       
                 </div>
                 <div class="col-md-6">
                       <p class="text-right">
-                              <a href="#">Back to top</a>
+                              <a href="#">Back to top <i class="fas fa-level-up-alt"></i></a>
                             </p>
                 </div>
             </div>
@@ -119,8 +236,22 @@
         </div>
       </footer>
       
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
+      <script>
+        
+        $(document).on('click','[data-toggle="lightbox"]',function(e){
+          e.preventDefault();
+          $(this).ekkoLightbox();
+        });
+      </script>
+     
+      
+      {% block scripts %}
+
+      {% endblock %}
       </html>
       

@@ -1,0 +1,39 @@
+body{
+    font-family: 'Crete Round', serif;
+    overflow-x:hidden;
+}
+#header {
+    height: 50px;
+    background: #10284e;
+    color: wheat;
+
+}
+#user-tools a{
+    border: none !important;
+}
+
+.module h2, .module caption, .inline-group h2 {
+  
+    padding: 16px;
+    background: #264452;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.dashboard #content {
+    width: 800px !important;
+}
+
+#content-related .module h2 {
+    background: #264452;
+   
+   
+    border-bottom: 1px solid #491818;
+    
+    color: #fff;
+}
+
+div.breadcrumbs {
+    background: #b95300;
+   
+}

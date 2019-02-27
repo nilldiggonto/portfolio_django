@@ -5,19 +5,19 @@
 
 
 
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb"   style="margin-top:55px;">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Blog</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'list' %}">Blog</a></li>
 
-      <li class="breadcrumb-item active" aria-current="page">{{blog.title}}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{object.title}}</li>
     </ol>
   </nav>
 <main role="main">
 
-    <section class="jumbotron text-center">
-      <div class="container bg-primary p-4">
-        <h1 class="jumbotron-heading">{{blog.title}}</h1>
+    <section class="jumbotron text-center whatblog">
+      <div class="container  p-4"  style="background-color:#375a7f85;">
+        <h1 class="jumbotron-heading">{{object.title}}</h1>
       </div>
 
       
@@ -27,25 +27,49 @@
     <div class="container">
         <div class="row">
 
-            {% if blog %}
+            {% if object %}
 
            
 
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                            <img  class="img card-img-top" src="{{blog.image.url}}" alt="image">
+                        <a href="{{object.image.url}}" data-toggle="lightbox">
+
+                            <img class="img card-img-top" src="{{object.image.url}}" alt="image">
+                          </a>
+                            <!-- <img  class="img card-img-top" src="{{object.image.url}}" alt="image"> -->
                             
                             <hr>
-                        <h1>{{blog.title}}</h1>
-                        <p>{{blog.publish_date}}</p>
+                        <h1>{{object.title}}</h1>
+                        <p>{{object.publish_date}}</p>
                     </div>
                     <div class="card-body">
-                        <p>{{blog.body}}</p>
+                        <p>{{object.body}}</p>
                         
                     </div>
                     <div class="card-footer">
-                        
+                      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://nillblog-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                              
                     </div>
                 </div>
             </div>

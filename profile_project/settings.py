@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'jobs'
 ]
 
+MAILCHIMP_API_KEY = "e40e1995f5640546e26f48dadf7cce51-us19"
+MAILCHIMP_DATA_CENTER= "us19"
+MAILCHIMP_EMAIL_LIST_ID = "2121270459"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

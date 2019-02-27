@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb "  style="margin-top:55px;">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Blog</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'list' %}">Blog</a></li>
           <li class="breadcrumb-item active" aria-current="page">Latest Posts</li>
         </ol>
       </nav>
 <main role="main">
 
-        <section class="jumbotron text-center">
-          <div class="container bg-primary p-4">
+        <section class="jumbotron text-center whatblog">
+          <div class="container p-4" style="background-color:#375a7f85;">
             <h1 class="jumbotron-heading">Welcome to Dio's Blog</h1>
           </div>
 
@@ -29,7 +29,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                                <img style="width:20%;" class="img card-img-top" src="{{blog.image.url}}" alt="image">
+
+                            <a href="{{blog.image.url}}" data-toggle="lightbox">
+                          
+                                <img style="width:20%" class="img card-img-top" src="{{blog.image.url}}" alt="image">
+                              </a>
+                                <!-- <img style="width:20%;" class="img card-img-top" src="{{blog.image.url}}" alt="image"> -->
                                 
                                 <hr>
                             <h1>{{blog.title}}</h1>
@@ -37,7 +42,7 @@
                         </div>
                         <div class="card-body">
                             <p>{{blog.summary}}...............................</p>
-                            <a href="#" class="btn btn-success btn-sm">Read More</a>
+                            <a href="{{blog.get_absolute_url}}" class="btn btn-success btn-sm">Read More</a>
                         </div>
                         <div class="card-footer">
                             

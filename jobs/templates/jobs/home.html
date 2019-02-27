@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main role="main">
 
-        <section class="jumbotron text-center">
+
+        <section class="jumbotron text-center dio-header " style="margin-top:60px;">
           <div class="container">
             <h1 class="jumbotron-heading">Yo! It's me.Dio</h1>
-            <p class="lead text-muted">"JoJo, being a human means having limits. I've learned something... The more carefully you scheme, the more unexpected events come along. As long as you're human...  I REJECT MY HUMANITY, JOJO!"</p>
+            <p class="lead text-muted">"JoJo, being a human means having limits. I've learned something... The more carefully you scheme, the more unexpected events come along. As long as you're human... <br>  I REJECT MY HUMANITY, JOJO!"</p>
             <p>
-              <a href="#" class="btn btn-success my-2">Email ME</a>
-              <a href="#" class="btn btn-info my-2">Call ME</a>
+              <a style="cursor:pointer;"  data-toggle="modal" data-target="#myModal" class="btn btn-outline-dark my-2">CONTACT WITH ME</a>
+             
             </p>
           </div>
         </section>
       
 
-
-  <div class="album py-5 bg-light">
+        <main role="main">
+  <div class="album py-5 ">
     <div class="container">
 
       <div class="row">
@@ -28,7 +28,9 @@
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm text-center">
               <div class="card-header">
+                  <a href="{{job.image.url}}" data-toggle="lightbox">
                   <img class="card-img-top" src="{{job.image.url}}" alt="image">
+                </a>
               </div>
             <div class="card-body">
               <p class="card-text">{{job.summary}}</p>
@@ -43,4 +45,65 @@
   </div>
 
 </main>
+
+<!--Modal Area-->
+ <!-- The Modal -->
+ <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+       
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form action="" method="POST">
+           {% csrf_token %}
+           <div class="form-grouo pb-2">
+           <div class="input-group input-group-lg">
+             <div class="input-group-prepend">
+               <span class="input-group-text bg-danger text-white">
+                 <i class="fas fa-user"></i>
+               </span>
+             </div>
+             <input name="user" type="text" placeholder="Username" class="form-control bg-primary text-white" required>
+           </div>
+          </div>
+
+
+          <div class="form-grouo pb-2">
+              <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-danger text-white">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </div>
+                <input name="email" type="email" placeholder="Email" class="form-control bg-primary text-white" required>
+              </div>
+             </div>
+
+
+             <div class="form-grouo pb-2">
+                <div class="input-group input-group-lg">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-danger text-white">
+                      <i class="fas fa-pencil-alt"></i>
+                    </span>
+                  </div>
+                  <textarea name="content" class="form-control bg-primary text-white" > </textarea>
+                </div>
+               </div>
+
+               <input  type="submit" value="Submit" class="btn btn-danger btn-block btn-lg">
+         </form>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+ 
+
 {% endblock %}

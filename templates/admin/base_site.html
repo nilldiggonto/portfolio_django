@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block branding %} 
+<h1 id="head">
+     <img src="{% static 'image/logo.png' %}" class="brand-img" alt="" height="40" width="45">
+     Dio's House
+</h1>
+ {% endblock %}
+
+
+ {% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+ {% endblock %}
